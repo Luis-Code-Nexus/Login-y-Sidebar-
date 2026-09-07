@@ -1,0 +1,1276 @@
+/* ============================================================
+   VARIABLES
+============================================================ */
+
+:root {
+    --black: #050505;
+    --black-soft: #0c0c0c;
+    --black-light: #151515;
+
+    --white: #ffffff;
+    --gray: #999999;
+    --gray-light: #d0d0d0;
+
+    --border: rgba(255, 255, 255, 0.10);
+
+    --accent: #ffffff;
+
+    --radius: 24px;
+
+    --transition: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ============================================================
+   RESET
+============================================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #6e6666;
+    color: var(--white);
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   PAGE
+============================================================ */
+
+.auth-page {
+    width: 100%;
+    height: 100vh;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255, 255, 255, 0.05),
+            transparent 30%
+        ),
+        #524e4e;
+}
+
+
+/* ============================================================
+   MAIN CONTAINER
+============================================================ */
+
+.auth-container {
+    position: relative;
+
+    width: min(1180px, 100%);
+    height: 720px;
+    min-height: 0;
+
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+
+    overflow: hidden;
+
+    border-radius: var(--radius);
+
+    background: #0b0b0b;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+
+/* ============================================================
+   LEFT / WELCOME
+============================================================ */
+
+.welcome-panel {
+    position: relative;
+
+    height: 100%;
+    min-height: 0;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            rgba(255, 255, 255, 0.08),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            #090909,
+            #111111
+        );
+}
+
+
+/* ============================================================
+   OVERLAY
+============================================================ */
+
+.welcome-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 5, 5, 0.95),
+            rgba(5, 5, 5, 0.35)
+        );
+
+    z-index: 1;
+}
+
+
+/* ============================================================
+   WORLD
+============================================================ */
+
+.world-container {
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    right: -90px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0.8;
+}
+
+
+/* Glow */
+
+.world-glow {
+    position: absolute;
+
+    width: 390px;
+    height: 390px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    filter: blur(45px);
+}
+
+
+/* Globe */
+
+.world {
+    position: relative;
+
+    width: 370px;
+    height: 370px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255, 255, 255, 0.10),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 60% 65%,
+            rgba(255, 255, 255, 0.04),
+            transparent 60%
+        );
+
+    box-shadow:
+        inset -35px -25px 80px rgba(0, 0, 0, 0.75),
+        inset 15px 15px 50px rgba(255, 255, 255, 0.05),
+        0 0 60px rgba(255, 255, 255, 0.04);
+
+    overflow: hidden;
+}
+
+
+/* Vertical longitude */
+
+.world-line {
+    position: absolute;
+
+    top: -5%;
+    bottom: -5%;
+
+    border-left: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50%;
+}
+
+.line-one {
+    width: 45%;
+    left: 27.5%;
+}
+
+.line-two {
+    width: 75%;
+    left: 12.5%;
+}
+
+.line-three {
+    width: 95%;
+    left: 2.5%;
+}
+
+
+/* Horizontal latitude */
+
+.world-horizontal {
+    position: absolute;
+
+    left: -5%;
+    right: -5%;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+    border-radius: 50%;
+}
+
+.horizontal-one {
+    top: 25%;
+}
+
+.horizontal-two {
+    top: 50%;
+}
+
+.horizontal-three {
+    top: 75%;
+}
+
+
+/* World points */
+
+.world-dot {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+.dot-one {
+    left: 30%;
+    top: 35%;
+}
+
+.dot-two {
+    left: 55%;
+    top: 25%;
+}
+
+.dot-three {
+    left: 68%;
+    top: 55%;
+}
+
+.dot-four {
+    left: 42%;
+    top: 67%;
+}
+
+.dot-five {
+    left: 75%;
+    top: 38%;
+}
+
+
+/* ============================================================
+   WELCOME CONTENT
+============================================================ */
+
+.welcome-content {
+    position: relative;
+
+    z-index: 5;
+
+    width: 72%;
+    height: 100%;
+
+    padding: 60px;
+
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Brand */
+
+.brand {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 55px;
+
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.brand span span {
+    font-weight: 300;
+    color: #999999;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+    color: #050505;
+
+    font-size: 17px;
+}
+
+
+/* Heading */
+
+.welcome-content h1 {
+    max-width: 450px;
+
+    font-size: clamp(38px, 4vw, 58px);
+
+    line-height: 1.08;
+
+    font-weight: 300;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 25px;
+}
+
+.welcome-content h1 strong {
+    display: block;
+
+    font-weight: 600;
+}
+
+
+/* Description */
+
+.welcome-content p {
+    max-width: 420px;
+
+    color: #a4a4a4;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* Line */
+
+.welcome-line {
+    width: 60px;
+    height: 2px;
+
+    margin: 35px 0;
+
+    background: #ffffff;
+}
+
+
+/* Info */
+
+.welcome-info {
+    display: flex;
+
+    gap: 30px;
+}
+
+.welcome-info div {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #bcbcbc;
+
+    font-size: 12px;
+}
+
+.welcome-info i {
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   RIGHT / FORM
+============================================================ */
+
+.form-panel {
+    position: relative;
+
+    height: 100%;
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    color: #101010;
+}
+
+
+/* ============================================================
+   WRAPPER
+============================================================ */
+
+.form-wrapper {
+    position: relative;
+
+    width: 100%;
+    max-width: 390px;
+
+    height: 100%;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   FORM CONTENT
+============================================================ */
+
+.form-content {
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+
+    flex-direction: column;
+
+    animation: formIn 0.45s ease forwards;
+}
+
+.form-content.active {
+    display: flex;
+}
+
+
+@keyframes formIn {
+
+    from {
+        opacity: 0;
+        transform: translateX(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.form-header {
+    flex-shrink: 0;
+
+    margin-bottom: 30px;
+}
+
+.form-small-title {
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #999999;
+}
+
+.form-header h2 {
+    margin-top: 8px;
+
+    font-size: 36px;
+
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+
+    color: #090909;
+}
+
+.form-header p {
+    margin-top: 8px;
+
+    color: #8a8a8a;
+
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   INPUTS
+============================================================ */
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: #333333;
+}
+
+.input-box {
+    position: relative;
+
+    height: 52px;
+    min-height: 52px;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #dedede;
+
+    border-radius: 11px;
+
+    background: #fafafa;
+
+    transition:
+        border var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+.input-box:focus-within {
+    border-color: #111111;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+.input-box > i {
+    width: 48px;
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    color: #8c8c8c;
+
+    font-size: 14px;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+
+    min-width: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    padding: 0 12px 0 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    color: #111111;
+}
+
+.input-box input::placeholder {
+    color: #aaa;
+}
+
+
+/* ============================================================
+   PASSWORD
+============================================================ */
+
+.password-toggle {
+    width: 45px;
+    height: 100%;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    color: #999999;
+
+    transition: color 0.2s;
+}
+
+.password-toggle:hover {
+    color: #111111;
+}
+
+
+/* ============================================================
+   OPTIONS
+============================================================ */
+
+.form-options {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: -4px;
+}
+
+.remember {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    color: #777777;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.remember input {
+    accent-color: #111111;
+
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #222222;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+
+/* ============================================================
+   SUBMIT BUTTON
+============================================================ */
+
+.submit-button {
+    width: 100%;
+    height: 53px;
+    min-height: 53px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 4px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #080808;
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        background 0.3s,
+        box-shadow 0.3s;
+}
+
+.submit-button i {
+    transition: transform 0.3s;
+}
+
+.submit-button:hover {
+    background: #202020;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.submit-button:hover i {
+    transform: translateX(5px);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+
+/* ============================================================
+   SWITCH LOGIN / REGISTER
+============================================================ */
+
+.switch-form {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+
+    flex-shrink: 0;
+
+    margin-top: 27px;
+
+    font-size: 11px;
+
+    color: #888888;
+}
+
+.switch-form button {
+    border: none;
+
+    padding: 0;
+
+    background: transparent;
+
+    color: #111111;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.switch-form button:hover {
+    text-decoration: underline;
+}
+
+
+/* ============================================================
+   MOBILE LOGO
+============================================================ */
+
+.mobile-logo {
+    display: none;
+}
+
+
+/* ============================================================
+   MESSAGE
+============================================================ */
+
+.message {
+    flex-shrink: 0;
+
+    padding: 11px 14px;
+
+    margin-bottom: 20px;
+
+    border-radius: 9px;
+
+    font-size: 11px;
+}
+
+.message.success {
+    background: #edf8ef;
+
+    color: #26743a;
+
+    border: 1px solid #cdebd3;
+}
+
+.message.error {
+    background: #fff0f0;
+
+    color: #a33a3a;
+
+    border: 1px solid #f1cccc;
+}
+
+
+/* ============================================================
+   REGISTRO
+   SCROLL INTERNO
+============================================================ */
+
+.register-content {
+    min-height: 0;
+
+    overflow: hidden;
+}
+
+
+/* Formulario */
+
+.register-form {
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   ÁREA CON SCROLL
+============================================================ */
+
+.register-scroll {
+    flex: 1 1 auto;
+
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+
+/* Campos */
+
+.register-scroll .input-group {
+    flex-shrink: 0;
+
+    margin-bottom: 20px;
+}
+
+
+/* Evitar margen extra en el último campo */
+
+.register-scroll .input-group:last-child {
+    margin-bottom: 5px;
+}
+
+
+/* ============================================================
+   SCROLLBAR
+============================================================ */
+
+.register-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.register-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.register-scroll::-webkit-scrollbar-thumb {
+    background: #c8c8c8;
+
+    border-radius: 20px;
+}
+
+.register-scroll::-webkit-scrollbar-thumb:hover {
+    background: #999999;
+}
+
+
+/* Firefox */
+
+.register-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #c8c8c8 transparent;
+}
+
+
+/* ============================================================
+   BOTÓN REGISTRO
+============================================================ */
+
+.register-form .submit-button {
+    flex-shrink: 0;
+
+    margin-top: 10px;
+}
+
+
+/* ============================================================
+   SWITCH REGISTRO
+============================================================ */
+
+.register-content .switch-form {
+    flex-shrink: 0;
+
+    margin-top: 20px;
+}
+
+
+/* ============================================================
+   DESKTOP RESPONSIVE
+============================================================ */
+
+@media (max-width: 1100px) {
+
+    .auth-page {
+        padding: 20px;
+    }
+
+    .auth-container {
+        grid-template-columns: 1fr 0.9fr;
+    }
+
+    .welcome-content {
+        width: 80%;
+
+        padding: 45px;
+    }
+
+    .world-container {
+        right: -170px;
+    }
+
+    .form-panel {
+        padding: 40px;
+    }
+
+}
+
+
+/* ============================================================
+   SMALL DESKTOP / TABLET
+============================================================ */
+
+@media (max-width: 850px) {
+
+    .auth-container {
+        height: 650px;
+        min-height: 0;
+    }
+
+    .welcome-panel {
+        height: 650px;
+        min-height: 0;
+    }
+
+    .welcome-content {
+        height: 650px;
+        min-height: 0;
+
+        padding: 35px;
+    }
+
+    .welcome-content h1 {
+        font-size: 38px;
+    }
+
+    .world-container {
+        transform: translateY(-50%) scale(0.75);
+
+        right: -210px;
+    }
+
+    .form-panel {
+        padding: 30px;
+    }
+
+    .form-header h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* ============================================================
+   HEIGHT CONTROL
+============================================================ */
+
+@media (max-height: 760px) {
+
+    .auth-page {
+        padding: 20px;
+    }
+
+    .auth-container {
+        height: 620px;
+        min-height: 0;
+    }
+
+    .welcome-panel {
+        height: 620px;
+        min-height: 0;
+    }
+
+    .welcome-content {
+        height: 620px;
+        min-height: 0;
+
+        padding-top: 35px;
+        padding-bottom: 35px;
+    }
+
+    .brand {
+        margin-bottom: 35px;
+    }
+
+}
+
+
+/* ============================================================
+   PANTALLAS MUY BAJAS
+============================================================ */
+
+@media (max-height: 650px) {
+
+    .auth-container {
+        height: calc(100vh - 30px);
+    }
+
+    .welcome-panel {
+        height: 100%;
+    }
+
+    .welcome-content {
+        height: 100%;
+
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .brand {
+        margin-bottom: 25px;
+    }
+
+    .form-panel {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .form-header {
+        margin-bottom: 20px;
+    }
+
+    .form-header h2 {
+        font-size: 30px;
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .auth-page {
+        height: 100vh;
+        min-height: 0;
+
+        padding: 12px;
+    }
+
+    .auth-container {
+        width: 100%;
+        height: calc(100vh - 24px);
+
+        min-height: 0;
+
+        display: block;
+
+        border-radius: 18px;
+    }
+
+    /* Ocultar bienvenida */
+
+    .welcome-panel {
+        display: none;
+    }
+
+    /* Panel formulario */
+
+    .form-panel {
+        width: 100%;
+        height: 100%;
+
+        min-height: 0;
+
+        padding: 30px 22px;
+
+        overflow: hidden;
+    }
+
+    .form-wrapper {
+        width: 100%;
+        max-width: 390px;
+
+        height: 100%;
+        min-height: 0;
+    }
+
+    /* Logo móvil */
+
+    .mobile-logo {
+        width: 42px;
+        height: 42px;
+
+        margin-bottom: 15px;
+
+        border-radius: 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: #080808;
+        color: #ffffff;
+
+        font-size: 16px;
+    }
+
+    .form-header {
+        margin-bottom: 20px;
+    }
+
+    .form-header h2 {
+        font-size: 30px;
+    }
+
+    .form-header p {
+        font-size: 12px;
+    }
+
+    /* Scroll del registro */
+
+    .register-scroll {
+        padding-right: 7px;
+    }
+
+}
+
+
+/* ============================================================
+   MOBILE PEQUEÑO
+============================================================ */
+
+@media (max-width: 400px) {
+
+    .form-panel {
+        padding: 25px 18px;
+    }
+
+    .form-header h2 {
+        font-size: 27px;
+    }
+
+    .input-box {
+        height: 50px;
+        min-height: 50px;
+    }
+
+    .submit-button {
+        height: 50px;
+        min-height: 50px;
+    }
+
+    .switch-form {
+        margin-top: 18px;
+
+        font-size: 10px;
+    }
+
+}
