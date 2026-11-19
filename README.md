@@ -8,3 +8,9 @@ Pagina de practica utilizando PHP, HTML 5, CSS, Javascript y Bootstrap, es como 
   <img src="Screenshot 2026-09-07 173023.png" >
 </p>
 
+
+<p align="center">
+  <img src="Screenshot 2026-11-18 202521.png" >
+</p>
+
+
